@@ -42,8 +42,8 @@ class MainActivity : ComponentActivity() {
             "mwIDAQAB\n" +
             "-----END PUBLIC KEY-----"
 
-    val jwt =  "eyJhbGciOiJQUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWUsImlhdCI6MTUxNjIzOTAyMn0.GNhJz8YNyIT2e2kpO7jkH8K7z8lCP1Tsn3YO5_W_7BxB0U6VdoOK_1-l3Y8gWQV-XNrObDFsAdpvudTNkF_cQzZO3I3_6LdjU3iQ4NSTbJwaiaDzyaARC8hIWa55K7Hfz_m9btKOahJpqiiZ5RZNeCVC9VII4uxbuZozfC8r0aXsnmd97TH2vdpIcnzuADH_Cu_AhUSF2C1Bsk4RZe6wf_WmopP48WD3EUmZYvnaSuACtZrN3jRIymcvmtQWWOkFlAjHxjSyKYO33MgpPh1wI_jLfOUZY0S8gxylbd8LK3b0YE0jkpjOznsY8M03dAAS8V_pfzLOLB2yMrRR9e0mLA"
-
+    val jwtPS512 =  "eyJhbGciOiJQUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWUsImlhdCI6MTUxNjIzOTAyMn0.GNhJz8YNyIT2e2kpO7jkH8K7z8lCP1Tsn3YO5_W_7BxB0U6VdoOK_1-l3Y8gWQV-XNrObDFsAdpvudTNkF_cQzZO3I3_6LdjU3iQ4NSTbJwaiaDzyaARC8hIWa55K7Hfz_m9btKOahJpqiiZ5RZNeCVC9VII4uxbuZozfC8r0aXsnmd97TH2vdpIcnzuADH_Cu_AhUSF2C1Bsk4RZe6wf_WmopP48WD3EUmZYvnaSuACtZrN3jRIymcvmtQWWOkFlAjHxjSyKYO33MgpPh1wI_jLfOUZY0S8gxylbd8LK3b0YE0jkpjOznsY8M03dAAS8V_pfzLOLB2yMrRR9e0mLA"
+    val jwtRSA512 = "eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWUsImlhdCI6MTUxNjIzOTAyMn0.jYW04zLDHfR1v7xdrW3lCGZrMIsVe0vWCfVkN2DRns2c3MN-mcp_-RE6TN9umSBYoNV-mnb31wFf8iun3fB6aDS6m_OXAiURVEKrPFNGlR38JSHUtsFzqTOj-wFrJZN4RwvZnNGSMvK3wzzUriZqmiNLsG8lktlEn6KA4kYVaM61_NpmPHWAjGExWv7cjHYupcjMSmR8uMTwN5UuAwgW6FRstCJEfoxwb0WKiyoaSlDuIiHZJ0cyGhhEmmAPiCwtPAwGeaL1yZMcp0p82cpTQ5Qb-7CtRov3N4DcOHgWYk6LomPR5j5cCkePAz87duqyzSMpCB0mCOuE3CU2VMtGeQ"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,7 +61,7 @@ class MainActivity : ComponentActivity() {
 
         try {
             val parser = Jwts.parser().verifyWith(stringToPublicKey()).build()
-            val test = parser.parse(jwt)
+            val test = parser.parse(jwtPS512)
             Log.i("", "$test")
         } catch (e: Throwable) {
             Log.e("", "", e)
